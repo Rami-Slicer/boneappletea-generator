@@ -39,7 +39,7 @@
 
                 for (i = 0; i < text.length; i++) {
                     var mod = text[i];
-                    var repat = /[^a-zA-Z0-9]/g;
+                    var repat = /[^a-zA-Z0-9]/gi;
                     if (mod.replace(repat, "") in wordlib) {
                         mod = mod.replace(repat, "");
                         mod = wordlib[mod];
