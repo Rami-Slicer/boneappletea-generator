@@ -1,0 +1,18 @@
+.centered {
+    text-align: center;
+}
+
+.forms {
+    border-radius: 5px;
+}
+
+#frm1 {
+    text-align: center;
+}
+#subtitle {
+    color: lightgrey;
+}
+#textbox {
+    width: 256px;
+    height: 128px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>Boneappletea generator</title>
+    </head>
+    <body>
+        <h1 class="centered">
+            Boneappletea generator<br>
+        </h1>
+        <h2 class="centered" id="subtitle">Free karma?</h2>
+        <br>
+        <form id="frm1">
+          Your text: <br><input id="textbox" class="forms" type="text" name="fname"><br>
+          <input class="forms" type="button" onclick="myFunction()" value="Submit">
+        </form>
+
+        <p id="output"></p>
+        <script>
+            var wordlib = {
+                "bon": "bone",
+                "appetit": "apple tea",
+                "onward": "on word",
+                "onwards": "on words",
+                "violence": "violins",
+                "piece of cake": "pizza cake",
+                "entitled": "in title",
+                "indoctrination": "in doctor nation",
+                "indoctrinating": "in doctor mating"
+            }
+            function myFunction() {
+                var form = document.getElementById("frm1");
+
+                var text = form.elements[0].value;
+                var lastchar = text.slice(-1);
+                var output = "";
+                text = text.split(" ");
+
+                for (i = 0; i < text.length; i++) {
+                    var mod = text[i];
+                    var repat = /[^a-zA-Z0-9]/g;
+                    if (mod.replace(repat, "") in wordlib) {
+                        mod = mod.replace(repat, "");
+                        mod = wordlib[mod];
+                    }
+                    output += mod + " ";
+                }
+                output = output.slice(0, -1);
+                output += lastchar;
+                document.getElementById("output").innerHTML = output;
+            }
+        </script>
+    </body>
+</html>
