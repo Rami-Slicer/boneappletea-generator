@@ -11,10 +11,8 @@
         </h1>
         <h2 class="centered" id="subtitle">Free karma?</h2>
         <br>
-        <form id="frm1">
-          Your text: <br><input id="textbox" class="forms" type="text" name="fname"><br>
-          <input class="forms" type="button" onclick="myFunction()" value="Submit">
-        </form>
+          Your text: <br><textarea id="textbox" class="forms"><br>
+          <button class="forms" onclick="myFunction()" value="Submit">
 
         <p id="output"></p>
         <script>
@@ -30,13 +28,12 @@
                 "indoctrinating": "in doctor mating"
             }
             function myFunction() {
-                var form = document.getElementById("frm1");
-
-                var text = form.elements[0].value;
+                var text = document.getElementById("textbox").value;
+				
                 var lastchar = text.slice(-1);
                 var output = "";
                 text = text.split(" ");
-
+				
                 for (i = 0; i < text.length; i++) {
                     var mod = text[i];
                     var repat = /[^a-zA-Z0-9]/gi;
