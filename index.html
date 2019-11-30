@@ -11,8 +11,8 @@
         </h1>
         <h2 class="centered" id="subtitle">Free karma?</h2>
         <br>
-          Your text: <br><textarea id="textbox" class="forms"><br>
-          <button class="forms" onclick="myFunction()" value="Submit">
+          Your text: <br><textarea id="textbox" class="forms"></textarea><br>
+          <button class="forms" onclick="myFunction()">Convert</button>
 
         <p id="output"></p>
         <script>
@@ -29,22 +29,33 @@
             }
             function myFunction() {
                 var text = document.getElementById("textbox").value;
-				
-                var lastchar = text.slice(-1);
+				console.log(text);
+                var lastchar = text.charAt(text.length);
                 var output = "";
                 text = text.split(" ");
-				
+				console.log(text);
                 for (i = 0; i < text.length; i++) {
                     var mod = text[i];
+                    mod = mod.toLowerCase();
                     var repat = /[^a-zA-Z0-9]/gi;
                     if (mod.replace(repat, "") in wordlib) {
                         mod = mod.replace(repat, "");
+                        console.log(mod);
                         mod = wordlib[mod];
-                    }
-                    output += mod + " ";
-                }
-                output = output.slice(0, -1);
-                output += lastchar;
+                        output += mod + " ";
+                    } else {
+                        output += text[i] + " ";
+                    };
+                };
+                output = output.trim();
+                
+                console.log("!.?".search(lastchar) != -1);
+                console.log(lastchar);
+                
+                if ("!.?".search(lastchar) != -1) {
+                    
+                    output += lastchar;
+                };
                 document.getElementById("output").innerHTML = output;
             }
         </script>
