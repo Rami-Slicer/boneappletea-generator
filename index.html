@@ -1,63 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="styles.css">
-        <title>Boneappletea generator</title>
-    </head>
-    <body>
-        <h1 class="centered">
-            Boneappletea generator<br>
-        </h1>
-        <h2 class="centered" id="subtitle">Free karma?</h2>
-        <br>
-          Your text: <br><textarea id="textbox" class="forms"></textarea><br>
-          <button class="forms" onclick="myFunction()">Convert</button>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<title>Boneappletea generator</title>
+	</head>
+	<body>
+		<h1 class="centered">
+			Boneappletea generator<br>
+		</h1>
+		<h2 class="centered" id="subtitle">Free karma?</h2>
+		<br>
+		Your text: <br><textarea id="textbox" class="forms"></textarea><br>
+		<button class="forms" onclick="generate()">Convert</button>
 
-        <p id="output"></p>
-        <script>
-            var wordlib = {
-                "bon": "bone",
-                "appetit": "apple tea",
-                "onward": "on word",
-                "onwards": "on words",
-                "violence": "violins",
-                "piece of cake": "pizza cake",
-                "entitled": "in title",
-                "indoctrination": "in doctor nation",
-                "indoctrinating": "in doctor mating"
-            }
-            function myFunction() {
-                var text = document.getElementById("textbox").value;
-				console.log(text);
-                var lastchar = text.charAt(text.length);
-                var output = "";
-                text = text.split(" ");
-				console.log(text);
-                for (i = 0; i < text.length; i++) {
-                    var mod = text[i];
-                    mod = mod.toLowerCase();
-                    var repat = /[^a-zA-Z0-9]/gi;
-                    if (mod.replace(repat, "") in wordlib) {
-                        mod = mod.replace(repat, "");
-                        console.log(mod);
-                        mod = wordlib[mod];
-                        output += mod + " ";
-                    } else {
-                        output += text[i] + " ";
-                    };
-                };
-                output = output.trim();
-                
-                console.log("!.?".search(lastchar) != -1);
-                console.log(lastchar);
-                
-                if ("!.?".search(lastchar) != -1) {
-                    
-                    output += lastchar;
-                };
-                document.getElementById("output").innerHTML = output;
-            }
-        </script>
-    </body>
+		<p id="output"></p>
+		<!--This script is what actually creates the bone apple tea, edit it to change the behavior.-->
+		<script src="boneappletea.js"></script>
+	</body>
 </html>
