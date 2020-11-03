@@ -14,6 +14,7 @@ const wordlib = {
 	"entitled": "in title",
 	"indoctrination": "in doctor nation",
 	"indoctrinating": "in doctor mating",
+	"indoctrinate": "in doctor mate",
 	"indoctrinated": "in doctor mated",
 }
 
